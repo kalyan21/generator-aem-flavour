@@ -25,8 +25,8 @@ module.exports = Generator.extend({
       this.destinationPath('dummyfile.txt')
     );
     this.fs.copy(
-      this.templatePath('.ignore'),
-      this.destinationPath('.ignore')
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
     );
   },
 
