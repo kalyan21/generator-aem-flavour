@@ -20,7 +20,8 @@ function askForGroupId() {
     this.prompt({
         type: "input",
         name: "groupId",
-        message: "Provide group Id for your application"
+        message: "Provide group Id for your application",
+        default: 'com.mycompany'
     }).then(function (prompt) {
         this.groupId = prompt.groupId;
         done();
@@ -32,7 +33,8 @@ function askForArtifactId() {
     this.prompt({
         type: "input",
         name: "artifactId",
-        message: "Provide artifact Id for your application"
+        message: "Provide artifact Id for your application",
+        default: 'myapp'
     }).then(function (prompt) {
         this.artifactId = prompt.artifactId;
         done();
@@ -44,9 +46,23 @@ function askForVersion() {
     this.prompt({
         type: "input",
         name: "version",
-        message: "Provide snapshot version for your application"
+        message: "Provide snapshot version for your application",
+        default: '1.0'
     }).then(function (prompt) {
         this.version = prompt.version;
+        done();
+    }.bind(this));
+}
+
+function askForDescription() {
+    var done = this.async();
+    this.prompt({
+        type: "input",
+        name: "description",
+        message: "Provide description for your application",
+        default: 'Project description'
+    }).then(function (prompt) {
+        this.description = prompt.description;
         done();
     }.bind(this));
 }
@@ -55,10 +71,11 @@ function askForPackage() {
     var done = this.async();
     this.prompt({
         type: "input",
-        name: "package",
-        message: "Provide java package name for your application"
+        name: "packageName",
+        message: "Provide java package name for your application",
+        default: 'com.myapp'
     }).then(function (prompt) {
-        this.package = prompt.package;
+        this.packageName = prompt.packageName;
         done();
     }.bind(this));
 }
@@ -68,7 +85,8 @@ function askForAppsFolderName() {
     this.prompt({
         type: "input",
         name: "appsFolderName",
-        message: "Provide application folder name "
+        message: "Provide application folder name ",
+        default: "myapp"
     }).then(function (prompt) {
         this.appsFolderName = prompt.appsFolderName;
         done();
@@ -80,7 +98,8 @@ function askForArtifactName() {
     this.prompt({
         type: "input",
         name: "artifactName",
-        message: "Provide artifact name for your application "
+        message: "Provide artifact name for your application ",
+        default: "My App"
     }).then(function (prompt) {
         this.artifactName = prompt.artifactName;
         done();
@@ -92,7 +111,8 @@ function askForComponentGroupName() {
     this.prompt({
         type: "input",
         name: "componentGroupName",
-        message: "Provide component group name for your application "
+        message: "Provide component group name for your application ",
+        default: "My-App"
     }).then(function (prompt) {
         this.componentGroupName = prompt.componentGroupName;
         done();
@@ -104,7 +124,8 @@ function askForContentFolderName() {
     this.prompt({
         type: "input",
         name: "contentFolderName",
-        message: "Provide content folder name for your application "
+        message: "Provide content folder name for your application ",
+        default: "myapp"
     }).then(function (prompt) {
         this.contentFolderName = prompt.contentFolderName;
         done();
@@ -116,7 +137,8 @@ function askForPackageGroup() {
     this.prompt({
         type: "input",
         name: "packageGroup",
-        message: "Provide package group name for your application "
+        message: "Provide package group name for your application ",
+        default: "My App"
     }).then(function (prompt) {
         this.packageGroup = prompt.packageGroup;
         done();
@@ -128,7 +150,8 @@ function askForSiteName() {
     this.prompt({
         type: "input",
         name: "sitename",
-        message: "Provide site name for your application "
+        message: "Provide site name for your application ",
+        default: "My App"
     }).then(function (prompt) {
         this.sitename = prompt.sitename;
         done();
