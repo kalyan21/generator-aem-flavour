@@ -19,7 +19,7 @@
 	<artifactId><%= artifactId %>.core</artifactId>
 	<packaging>bundle</packaging>
 	<name><%= artifactName %></name>
-	<description>Core bundle for <%= appsFolderName %></description>
+	<description>Core bundle for <%= artifactName %></description>
 	<build>
 		<plugins>
 			<plugin>

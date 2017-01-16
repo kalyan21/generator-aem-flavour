@@ -2,8 +2,9 @@
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var prompts = require('./prompts');
 var mkdirp = require('mkdirp');
+var prompts = require('./prompts');
+var writeFiles = require('./files').writeFiles;
 
 module.exports = Generator.extend({
 
@@ -24,16 +25,7 @@ module.exports = Generator.extend({
     this.packageFolder = this.packageName.replace(/\./g, '/');
   },
 
-  writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
-    this.fs.copy(
-      this.templatePath('.gitignore'),
-      this.destinationPath('.gitignore')
-    );
-  },
+  writing: writeFiles(),
 
   install: function () {
     this.installDependencies();
