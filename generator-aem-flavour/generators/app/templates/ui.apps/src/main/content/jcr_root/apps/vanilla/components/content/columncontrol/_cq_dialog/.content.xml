@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="List"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#List - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <settings
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Settings"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <layoutoptions
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldDescription="Configure type of parsys layout "
+                                fieldLabel="Column Layout"
+                                name="./columnlayout">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <two-50-50
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (50%-50%)"
+                                        value="twoColumns-50-50"/>
+                                    <two-70-30
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (70%-30%)"
+                                        value="twoColumns-70-30"/>
+                                    <two-30-70
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (30%-70%)"
+                                        value="twoColumns-30-70"/>
+                                    <threecolumn
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Three Columns&#xa;"
+                                        value="threeColumns"/>
+                                    <fourcolumn
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Four Columns"
+                                        value="fourColumns"/>
+                                </items>
+                            </layoutoptions>
+                        </items>
+                    </column>
+                </items>
+            </settings>
+        </items>
+    </content>
+</jcr:root>

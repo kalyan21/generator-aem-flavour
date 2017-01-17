@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns='http://maven.apache.org/POM/4.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:schemaLocation='http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd'>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId><%= groupId %></groupId>
+		<artifactId><%= artifactId %></artifactId>
+		<version><%= version %>-SNAPSHOT</version>
+	</parent>
+
+	<artifactId><%= artifactId %>.frontend</artifactId>
+	<name><%= artifactName %></name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>clean-dist-folder</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>dist</directory>
+								</fileset>
+							</filesets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
+							<nodeVersion>v6.9.2</nodeVersion>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>bower install</id>
+						<goals>
+							<goal>bower</goal>
+						</goals>
+						<configuration>
+							<!-- optional: The default argument is actually "install", so unless 
+								you need to run some other bower command, you can remove this whole <configuration> 
+								section. -->
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<!-- This execution creates vendor folder inside dist with all bower 
+						components js and css -->
+					<execution>
+						<id>gulp build bower vendor libs</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<configuration>
+							<arguments>build-bower-vendor-clientlib</arguments>
+						</configuration>
+					</execution>
+					<!-- This execution creates app folder inside dist with all aem_components 
+						js and css -->
+					<execution>
+						<id>gulp build app libs</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<configuration>
+							<arguments>build-app-clientlib</arguments>
+						</configuration>
+					</execution>
+					<!-- This execution moves dist/app client libs to ui.apps../designs -->
+					<execution>
+						<id>gulp move app libs to AEM</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<configuration>
+							<arguments>move-applibs-to-aem</arguments>
+						</configuration>
+					</execution>
+					<!-- This execution moves dist/vendor client libs to ui.apps../designs -->
+					<execution>
+						<id>gulp move vendor libs to AEM</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<configuration>
+							<arguments>move-vendorlibs-to-aem</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>gulp fontawesome fonts to AEM</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<configuration>
+							<arguments>move-fontawesome-fonts-to-aem</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>gulp slick fonts to AEM</id>
+						<goals>
+							<goal>gulp</goal>
+						</goals>
+						<configuration>
+							<arguments>move-slick-fonts-to-aem</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

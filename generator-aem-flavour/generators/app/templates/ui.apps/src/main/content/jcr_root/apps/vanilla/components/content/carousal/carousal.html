@@ -1,0 +1,14 @@
+<div class="slick-carousal" 
+	data-sly-use.pageList="com.adobe.aem.core.components.PageListComponent"
+	data-sly-use.emptyRenderer="emptylist.html"
+    data-sly-use.singleViewTemplate="views/singleview.html"
+    data-sly-use.authoringUtils="/libs/wcm/foundation/components/utils/AuthoringUtils.js"
+    data-autoplayspeed="${properties.autoPlaySpeed}">
+
+    <sly data-sly-call="${emptyRenderer.emptylisttemplate @ list=pageList.filteredList, authUtils = authoringUtils}" />
+
+	<sly data-sly-test="${properties.displayAs == 'SingleViewCarousal'}">
+		<sly data-sly-call="${singleViewTemplate.singleViewCarousal @list = pageList}"></sly>
+	</sly>
+
+</div>

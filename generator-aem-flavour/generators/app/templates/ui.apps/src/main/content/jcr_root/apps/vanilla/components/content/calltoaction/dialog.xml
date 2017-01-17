@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    title="Dialog"
+    width="600"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Action Button">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <label
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        defaultValue="Configure CtoA"
+                        disabled="{Boolean}false"
+                        fieldDescription="provide label for call to action for button or link"
+                        fieldLabel="Call to action Label"
+                        name="./calltoactionLabel"/>
+                    <type
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="btn-default"
+                        fieldDescription="specify call to action as button or link"
+                        fieldLabel="Call to action type"
+                        name="./calltoactionType"
+                        options="$PATH.buttontype.json"
+                        type="select"
+                        xtype="selection"/>
+                    <buttonwidth
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="This is applicable only for Solid Button. If checked, the button will occupy full width."
+                        fieldLabel="Full Width"
+                        name="./fullWidth"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function(){&#xa;var dlg = this.findParentByType('tabpanel');&#xa;var buttonAlign = dlg.getComponent('buttonAlignment');&#xa;var buttonWidth = this.getValue();&#xa;if (buttonWidth)&#xa;&#x9;{&#xa;&#x9;&#x9;buttonAlign.disable();&#xa;&#x9;}&#xa;&#x9;else{&#xa;&#x9;&#x9;&#x9;buttonAlign.enable();&#xa;&#x9;}&#xa;}"
+                            selectionchanged="function(field,value, isChecked )&#xa;{&#xa;&#x9;var d = field.findParentByType('panel');&#xa;&#x9;var buttonAlign = d.getComponent(&quot;buttonAlignment&quot;);&#xa;&#x9;if (isChecked)&#xa;&#x9;{&#xa;&#x9;&#x9;buttonAlign.disable();&#xa;&#x9;}&#xa;&#x9;else{&#xa;&#x9;&#x9;buttonAlign.enable();&#xa;&#x9;}&#xa;}"/>
+                    </buttonwidth>
+                    <buttonalignment
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="ctoa-left"
+                        disabled="{Boolean}false"
+                        fieldLabel="Button Alignment"
+                        itemId="buttonAlignment"
+                        name="./buttonAlignment"
+                        options="$PATH.buttonalignment.json"
+                        type="select"
+                        xtype="selection"/>
+                    <buttonlinkto
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldDescription="This field allows the author to link the action button to the target page.."
+                        fieldLabel="Call to action link"
+                        name="./calltoactionLink"
+                        xtype="pathfield"/>
+                    <linknewwindow
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open Link In New Window"
+                        name="./linkNewWindow"
+                        type="checkbox"
+                        xtype="selection"/>
+                </items>
+            </tab1>
+        </items>
+    </items>
+</jcr:root>

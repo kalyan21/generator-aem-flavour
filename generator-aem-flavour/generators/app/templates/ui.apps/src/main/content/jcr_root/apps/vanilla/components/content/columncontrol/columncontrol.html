@@ -1,0 +1,29 @@
+<div class = "${wcmmode.edit ? 'column-control-border' : '' }">
+    <div data-sly-test="${wcmmode.edit}" class="column-control-helper-text">Start of column control</div>
+    <div class="row">
+        <sly data-sly-test="${properties.columnlayout == 'twoColumns-50-50' || properties.columnlayout == null}">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><sly data-sly-resource="${'column-1' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><sly data-sly-resource="${'column-2' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+        </sly>
+        <sly data-sly-test="${properties.columnlayout == 'twoColumns-70-30'}">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" ><sly data-sly-resource="${'column-1' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><sly data-sly-resource="${'column-2' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+        </sly>
+        <sly data-sly-test="${properties.columnlayout == 'twoColumns-30-70'}">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><sly data-sly-resource="${'column-1' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"><sly data-sly-resource="${'column-2' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+        </sly>
+        <sly data-sly-test="${properties.columnlayout == 'threeColumns'}">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><sly data-sly-resource="${'column-1' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><sly data-sly-resource="${'column-2' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><sly data-sly-resource="${'column-3' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+        </sly>
+        <sly data-sly-test="${properties.columnlayout == 'fourColumns'}">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><sly data-sly-resource="${'column-1' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><sly data-sly-resource="${'column-2' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><sly data-sly-resource="${'column-3' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><sly data-sly-resource="${'column-4' @ resourceType='wcm/foundation/components/parsys'}"/></div>
+        </sly>
+    </div>
+    <div data-sly-test="${wcmmode.edit}" class="column-control-helper-text">End of column control</div>
+</div>

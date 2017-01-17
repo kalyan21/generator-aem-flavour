@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    helpPath="en/cq/current/wcm/default_components.html#Columns"
+    title="Column Control"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <layout
+            jcr:primaryType="cq:Widget"
+            defaultValue="1"
+            fieldDescription="Configure type of parsys layout "
+            fieldLabel="Column Layout"
+            name="./columnlayout"
+            options="$PATH.layoutoptions.json"
+            type="select"
+            xtype="selection"/>
+    </items>
+</jcr:root>

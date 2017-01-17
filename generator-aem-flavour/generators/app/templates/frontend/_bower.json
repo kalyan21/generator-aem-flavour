@@ -1,0 +1,34 @@
+{
+  "name": "<%=artifactName%> -UI",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "kalyan.varanasi <kalyan.varanasi@capgemini.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "slick-carousel": "^1.6.0",
+    "font-awesome": "fontawesome#^4.7.0"
+  },
+  "overrides": {
+    "slick-carousel": {
+      "main": [
+        "slick/slick.less",
+        "slick/slick-theme.less",
+        "slick/slick.js"
+      ]
+    }
+  }
+}

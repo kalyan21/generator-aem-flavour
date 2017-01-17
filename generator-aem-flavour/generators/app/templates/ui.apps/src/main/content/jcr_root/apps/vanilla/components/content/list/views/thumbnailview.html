@@ -1,0 +1,18 @@
+<template data-sly-template.thumbnailContentViewPageList="${@ list}">
+    <div class="row">
+    	<sly data-sly-list="${list.filteredList}">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+					<sly data-sly-test.srcPath="${item.imageModel.imageSrc ? item.imageModel.imageSrc : '/content/dam/vanilla/images/default_image.png'}"></sly>
+                    <img src="${srcPath}" class="img-responsive" alt="${item.imageModel.altText}"/>
+                    <div class="caption">
+                        <h3>${item.linkModel.title}</h3>
+                        <p>${item.description}</p>
+                        <p><a href="${item.linkModel.link}" class="btn btn-primary" role="button">Open</a></p>
+                    </div>
+                </div>
+            </div>
+        </sly>
+    </div>
+</template>
+

@@ -1,0 +1,18 @@
+/*carousal css start*/
+
+.custom-slick-next {
+    right: -30px;
+}
+.custom-slick-prev {
+    left: -30px;
+	text-align: right;
+}
+.custom-slick-next, .custom-slick-prev {
+	position: absolute;
+	height: 20px;
+    width: 20px;
+    cursor: pointer;
+    top: 50%;
+}
+
+/*carousal css end*/

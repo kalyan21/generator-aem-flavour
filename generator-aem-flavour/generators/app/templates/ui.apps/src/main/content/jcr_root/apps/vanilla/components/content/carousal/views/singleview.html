@@ -1,0 +1,7 @@
+<template data-sly-template.singleViewCarousal="${@ list}">
+    <div class="slideshow">
+        <sly data-sly-list="${list.filteredList}">
+			 <img src=" ${item.imageSrc}", alttext="${item.altText}">
+        </sly>
+    </div>
+</template>

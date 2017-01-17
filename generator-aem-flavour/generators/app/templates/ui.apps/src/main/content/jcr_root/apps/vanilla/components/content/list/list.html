@@ -1,0 +1,18 @@
+<div class="page-list-component" 
+	data-sly-use.pageList="com.adobe.aem.core.components.PageListComponent"
+	data-sly-use.emptyRenderer="emptylist.html"
+    data-sly-use.linkViewTemplate="views/linkview.html"
+    data-sly-use.thumbnailViewTemplate="views/thumbnailview.html"
+    data-sly-use.authoringUtils="/libs/wcm/foundation/components/utils/AuthoringUtils.js">
+    
+    <sly data-sly-call="${emptyRenderer.emptylisttemplate @ list=pageList.filteredList, authUtils = authoringUtils}" />
+
+	<sly data-sly-test="${properties.displayAs == 'LinkViewPageList'}">
+		<sly data-sly-call="${linkViewTemplate.linkViewPageList @list = pageList}"></sly>
+	</sly>
+
+	<sly data-sly-test="${properties.displayAs == 'ThumbnailContentViewPageList'}">
+		<sly data-sly-call="${thumbnailViewTemplate.thumbnailContentViewPageList @list = pageList}"></sly>
+	</sly>
+
+</div>

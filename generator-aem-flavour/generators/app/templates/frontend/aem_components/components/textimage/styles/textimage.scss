@@ -1,0 +1,18 @@
+/* Text-Image component */
+.textimage-left {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+.textimage-right {
+    float: right;
+    margin: 0 0 1em 1em;
+}
+.textimage-text {
+    margin: 0 0 -1em;
+}
+.textimage-text:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/*Text-Image close*/

@@ -9,6 +9,9 @@ const constants = {
     VANILLA_CORE_TEST_SRC_DIR: TEST_DIR + '/java/com/adobe/aem/core',
     VANILLA_CORE_TEST_RES_DIR: TEST_DIR + '/java/com/adobe/aem/core',
 
+    VANILLA_APPS_MAIN_CONTENT: 'ui.apps/src/main/content',
+    VANILLA_APPS_MAIN_JCR_ROOT: VANILLA_APPS_MAIN_CONTENT+'/jcr_root',
+
     CORE_MAIN_SRC_DIR: MAIN_DIR + 'java/',
     CORE_MAIN_RES_DIR: MAIN_DIR + 'resources/',
     CORE_TEST_SRC_DIR: TEST_DIR + 'java/',

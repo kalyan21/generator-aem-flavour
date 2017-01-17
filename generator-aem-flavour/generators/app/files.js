@@ -181,7 +181,100 @@ function writeFiles() {
                     packageName: this.packageName
                 }
             );
-        }
+        },
+
+        writeFrontendAEMComponents: function () {
+            this.fs.copy(
+                this.templatePath('frontend/aem_components'),
+                this.destinationPath('frontend/aem_components')
+            );
+        },
+
+        writeFrontendBowerFile: function () {
+            this.fs.copyTpl(
+                this.templatePath('frontend/_bower.json'),
+                this.destinationPath('frontend/bower.json'), {
+                    artifactName: this.artifactName
+                }
+            );
+        },
+
+        writeFrontendBowerFile: function () {
+            this.fs.copyTpl(
+                this.templatePath('frontend/_gulpfile.js'),
+                this.destinationPath('frontend/gulpfile.js'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+        },
+
+        writeFrontendPackageFile: function () {
+            this.fs.copyTpl(
+                this.templatePath('frontend/_package.json'),
+                this.destinationPath('frontend/package.json'), {
+                    artifactName: this.artifactName
+                }
+            );
+        },
+
+        writeFrontendPOMFile: function () {
+            this.fs.copyTpl(
+                this.templatePath('frontend/_pom.xml'),
+                this.destinationPath('frontend/pom.xml'), {
+                    groupId: this.groupId,
+                    artifactId: this.artifactId,
+                    version: this.version,
+                    artifactName: this.artifactName,
+                }
+            );
+        },
+
+        writeUIAppsPOMFile: function () {
+            this.fs.copyTpl(
+                this.templatePath('ui.apps/_pom.xml'),
+                this.destinationPath('ui.apps/pom.xml'), {
+                    groupId: this.groupId,
+                    artifactId: this.artifactId,
+                    version: this.version,
+                    artifactName: this.artifactName,
+                }
+            );
+        },
+
+        writeUIAppsContentMETA_INF_Config: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_CONTENT + '/META-INF/vault/config.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_CONTENT + '/META-INF/vault/config.xml')
+            );
+        },
+
+        writeUIAppsContentMETA_INF_Settings: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_CONTENT + '/META-INF/vault/settings.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_CONTENT + '/META-INF/vault/settings.xml')
+            );
+        },
+
+        writeUIAppsContentMETA_INF_Filter: function () {
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_CONTENT + '/META-INF/vault/_filter.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_CONTENT + '/META-INF/vault/filter.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+        },
+
+        writeUIAppsSlingAndContentFile: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/sling'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/sling')
+            );
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/.content.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/.content.xml')
+            );
+        },
+
 
     }
 }
