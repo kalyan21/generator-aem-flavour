@@ -8,6 +8,38 @@ module.exports = {
 };
 
 var javaDir;
+var coreComponentsList = [
+    'PageListComponent.java',
+    'HeaderComponent.java',
+    'BaseComponent.java'
+];
+
+var coreListViews = [
+    'ThumbnailContentViewPageList.java',
+    'SingleViewCarousal.java',
+    'LinkViewPageList.java'
+];
+
+var coreModels = [
+    'ThumbnailContentViewModel.java',
+    'LanguagesModel.java',
+    'LinkModel.java',
+    'ImageModel.java'
+
+];
+var coreServices = [
+    'AbstractPageList.java',
+    'NavigationService.java',
+    'VanillaCoreService.java',
+    'ListFactory.java'
+];
+
+var coreServicesImpls = [
+    'NavigationServiceImpl.java',
+    'VanillaCoreServiceImpl.java',
+    'ListFactoryImpl.java'
+];
+
 var contentComponentsList = [
     'calltoaction',
     'carousal',
@@ -22,8 +54,6 @@ var contentComponentsList = [
     'textimage',
     'title'
 ];
-
-
 
 function writeFiles() {
     return {
@@ -65,24 +95,14 @@ function writeFiles() {
         },
 
         writeCoreComponents: function () {
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/components/_PageListComponent.java'),
-                this.destinationPath(javaDir + '/components/PageListComponent.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/components/_HeaderComponent.java'),
-                this.destinationPath(javaDir + '/components/HeaderComponent.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/components/_BaseComponent.java'),
-                this.destinationPath(javaDir + '/components/BaseComponent.java'), {
-                    packageName: this.packageName
-                }
-            );
+            coreComponentsList.forEach(function (componentClassName) {
+                this.fs.copyTpl(
+                    this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/components/_' + componentClassName),
+                    this.destinationPath(javaDir + '/components/' + componentClassName), {
+                        packageName: this.packageName
+                    }
+                );
+            }, this);
         },
 
         writeCoreConstants: function () {
@@ -95,99 +115,47 @@ function writeFiles() {
         },
 
         writeCoreList: function () {
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/list/views/_ThumbnailContentViewPageList.java'),
-                this.destinationPath(javaDir + '/list/views/ThumbnailContentViewPageList.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/list/views/_SingleViewCarousal.java'),
-                this.destinationPath(javaDir + '/list/views/SingleViewCarousal.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/list/views/_LinkViewPageList.java'),
-                this.destinationPath(javaDir + '/list/views/LinkViewPageList.java'), {
-                    packageName: this.packageName
-                }
-            );
+            coreListViews.forEach(function (listViewClassNames) {
+                this.fs.copyTpl(
+                    this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/list/views/_' + listViewClassNames),
+                    this.destinationPath(javaDir + '/list/views/' + listViewClassNames), {
+                        packageName: this.packageName
+                    }
+                );
+            }, this);
         },
 
         writeCoreModels: function () {
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/models/_ThumbnailContentViewModel.java'),
-                this.destinationPath(javaDir + '/models/ThumbnailContentViewModel.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/models/_LanguagesModel.java'),
-                this.destinationPath(javaDir + '/models/LanguagesModel.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/models/_LinkModel.java'),
-                this.destinationPath(javaDir + '/models/LinkModel.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/models/_ImageModel.java'),
-                this.destinationPath(javaDir + '/models/ImageModel.java'), {
-                    packageName: this.packageName
-                }
-            );
+            coreModels.forEach(function (modelClassNames) {
+                this.fs.copyTpl(
+                    this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/models/_' + modelClassNames),
+                    this.destinationPath(javaDir + '/models/' + modelClassNames), {
+                        packageName: this.packageName
+                    }
+                );
+            }, this);
         },
 
         writeCoreServices: function () {
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/_AbstractPageList.java'),
-                this.destinationPath(javaDir + '/services/AbstractPageList.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/_NavigationService.java'),
-                this.destinationPath(javaDir + '/services/NavigationService.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/_VanillaCoreService.java'),
-                this.destinationPath(javaDir + '/services/VanillaCoreService.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/_ListFactory.java'),
-                this.destinationPath(javaDir + '/services/ListFactory.java'), {
-                    packageName: this.packageName
-                }
-            );
+            coreServices.forEach(function (servicesClassNames) {
+                this.fs.copyTpl(
+                    this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/_' + servicesClassNames),
+                    this.destinationPath(javaDir + '/services/' + servicesClassNames), {
+                        packageName: this.packageName
+                    }
+                );
+            }, this);
         },
 
         writeCoreServicesImpl: function () {
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/impl/_NavigationServiceImpl.java'),
-                this.destinationPath(javaDir + '/services/impl/NavigationServiceImpl.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/impl/_VanillaCoreServiceImpl.java'),
-                this.destinationPath(javaDir + '/services/impl/VanillaCoreServiceImpl.java'), {
-                    packageName: this.packageName
-                }
-            );
-            this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/impl/_ListFactoryImpl.java'),
-                this.destinationPath(javaDir + '/services/ListFactory.java'), {
-                    packageName: this.packageName
-                }
-            );
+            coreServicesImpls.forEach(function (servicesImplsClassNames) {
+                this.fs.copyTpl(
+                    this.templatePath(constants.VANILLA_CORE_MAIN_SRC_DIR + '/services/impl/_' + servicesImplsClassNames),
+                    this.destinationPath(javaDir + '/services/impl/' + servicesImplsClassNames), {
+                        packageName: this.packageName
+                    }
+                );
+            }, this);
         },
 
         writeCoreUtils: function () {
@@ -309,6 +277,21 @@ function writeFiles() {
                     }
                 );
             }, this);
+        },
+
+        writeUIAppsStructureFiles: function () {
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/structure/basepage/partials/headlibs.html'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/structure/basepage/partials/headlibs.html'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/structure/basepage/partials/footlibs.html'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/structure/basepage/partials/footlibs.html'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
         }
 
     }

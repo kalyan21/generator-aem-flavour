@@ -14,4 +14,4 @@
     limitations under the License.
 */-->
 <!--/* Include the site client libraries (loading only the JS in the footer, CSS was loaded in the header) */-->
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='vanilla.all'}" data-sly-unwrap/>
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='<%=appsFolderName%>.all'}" data-sly-unwrap/>
