@@ -5,8 +5,11 @@ var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 var prompts = require('./prompts');
 var writeFiles = require('./files').writeFiles;
+var header = require('./header').writeHeader;
 
 module.exports = Generator.extend({
+
+  initializing: header(),
 
   prompting: {
     askForGroupId: prompts.askForGroupId,
@@ -25,9 +28,5 @@ module.exports = Generator.extend({
     this.packageFolder = this.packageName.replace(/\./g, '/');
   },
 
-  writing: writeFiles(),
-
-  install: function () {
-    this.installDependencies();
-  }
+  writing: writeFiles()
 });

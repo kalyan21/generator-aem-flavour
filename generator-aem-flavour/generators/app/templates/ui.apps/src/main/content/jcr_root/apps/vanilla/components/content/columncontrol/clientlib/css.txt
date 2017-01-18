@@ -1,2 +1,0 @@
-#base=css
-columncontrol.css

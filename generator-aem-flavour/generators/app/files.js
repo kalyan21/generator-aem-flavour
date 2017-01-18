@@ -8,6 +8,22 @@ module.exports = {
 };
 
 var javaDir;
+var contentComponentsList = [
+    'calltoaction',
+    'carousal',
+    'columncontrol',
+    'footer',
+    'header',
+    'helloworld',
+    'image',
+    'list',
+    'rawhtml',
+    'text',
+    'textimage',
+    'title'
+];
+
+
 
 function writeFiles() {
     return {
@@ -275,6 +291,25 @@ function writeFiles() {
             );
         },
 
+        /**This method by default ignore .content files. These files needs to be copied based on template */
+        writeUIAppsProjectFolder: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName)
+            );
+        },
+
+        /**Code to copy .content files of each */
+        writeUIAppsContentFiles: function () {
+            contentComponentsList.forEach(function (componentName) {
+                this.fs.copyTpl(
+                    this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/' + componentName + '/.content.xml'),
+                    this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/' + componentName + '/.content.xml'), {
+                        componentGroupName: this.componentGroupName
+                    }
+                );
+            }, this);
+        }
 
     }
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="The Call to Action component is a stylized button designed to provide authors with the ability to link users to important content or marketing conversions."
+    jcr:primaryType="cq:Component"
+    jcr:title="Call To Action"
+    componentGroup="<%=componentGroupName%>"/>
