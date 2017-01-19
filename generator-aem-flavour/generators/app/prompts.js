@@ -112,7 +112,7 @@ function askForComponentGroupName() {
         type: 'input',
         name: 'componentGroupName',
         message: 'Provide ' + chalk.green('component group name') + ' for your application ',
-        default: 'My-App'
+        default: 'My App'
     }).then(function (prompt) {
         this.componentGroupName = prompt.componentGroupName;
         done();

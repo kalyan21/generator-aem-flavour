@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Test content template for project Vanilla"
+    jcr:description="Test content template for project <%=artifactName%>"
     jcr:primaryType="cq:Template"
-    jcr:title="Vanilla Content Page"
+    jcr:title="<%=artifactName%> Content Page"
     allowedPaths="[/content(/.*)?]"
     ranking="{Long}90">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="vanilla/components/structure/contentpage"/>
+        sling:resourceType="<%=appsFolderName%>/components/structure/contentpage"/>
 </jcr:root>

@@ -292,6 +292,26 @@ function writeFiles() {
                     appsFolderName: this.appsFolderName
                 }
             );
+        },
+
+        writeUIAppsConfig: function () {
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/config/org.apache.sling.commons.log.LogManager.factory.config-vanilla.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/config/org.apache.sling.commons.log.LogManager.factory.config-' + this.appsFolderName + '.xml'), {
+                    appsFolderName: this.appsFolderName,
+                    packageName: this.packageName
+                }
+            );
+        },
+
+        writeUIAppsTemplates: function () {
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/templates/contentpage/.content.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/templates/contentpage/.content.xml'), {
+                    appsFolderName: this.appsFolderName,
+                    artifactName: this.artifactName
+                }
+            );
         }
 
     }
