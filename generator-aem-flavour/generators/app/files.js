@@ -296,8 +296,8 @@ function writeFiles() {
 
         writeUIAppsConfig: function () {
             this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/config/org.apache.sling.commons.log.LogManager.factory.config-vanilla.xml'),
-                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/config/org.apache.sling.commons.log.LogManager.factory.config-' + this.appsFolderName + '.xml'), {
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/config/org.apache.sling.commons.log.LogManager.factory.config-project.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/config/org.apache.sling.commons.log.LogManager.factory.config-project.xml'), {
                     appsFolderName: this.appsFolderName,
                     packageName: this.packageName
                 }
@@ -312,7 +312,33 @@ function writeFiles() {
                     artifactName: this.artifactName
                 }
             );
-        }
+        },
+
+        writeEtcDesignsFolder: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/_vanilla'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/' + this.appsFolderName)
+            );
+        },
+
+        writeEtcDesignsContent: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/_vanilla/.content.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/' + this.appsFolderName + '/.content.xml')
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/_vanilla/clientlib-all/.content.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/' + this.appsFolderName + '/clientlib-all/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+             this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/_vanilla/clientlib-vendor/.content.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/' + this.appsFolderName + '/clientlib-vendor/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+        },
 
     }
 }
