@@ -82,6 +82,7 @@ function writeFiles() {
             );
         },
 
+        /**Write functions for core module */
         writeCorePom: function () {
             this.fs.copyTpl(
                 this.templatePath('core/_pom.xml'),
@@ -167,6 +168,7 @@ function writeFiles() {
             );
         },
 
+        /**Write functions for frontend module */
         writeFrontendAEMComponents: function () {
             this.fs.copy(
                 this.templatePath('frontend/aem_components'),
@@ -213,6 +215,7 @@ function writeFiles() {
             );
         },
 
+        /**Write functions for ui.apps module */
         writeUIAppsPOMFile: function () {
             this.fs.copyTpl(
                 this.templatePath('ui.apps/_pom.xml'),
@@ -332,13 +335,109 @@ function writeFiles() {
                     appsFolderName: this.appsFolderName
                 }
             );
-             this.fs.copyTpl(
+            this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/_vanilla/clientlib-vendor/.content.xml'),
                 this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/' + this.appsFolderName + '/clientlib-vendor/.content.xml'), {
                     appsFolderName: this.appsFolderName
                 }
             );
         },
+
+        /**Write functions for ui.content module*/
+        writeUIContentPOMFile: function () {
+            this.fs.copyTpl(
+                this.templatePath('ui.content/_pom.xml'),
+                this.destinationPath('ui.content/pom.xml'), {
+                    groupId: this.groupId,
+                    artifactId: this.artifactId,
+                    version: this.version,
+                    artifactName: this.artifactName,
+                }
+            );
+        },
+
+        writeUIAppsContentMETA_INF_Config: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/config.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/config.xml')
+            );
+        },
+
+        writeUIAppsContentMETA_INF_Settings: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/settings.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/settings.xml')
+            );
+        },
+
+        writeUIAppsContentMETA_INF_Filter: function () {
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/_filter.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/filter.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+        },
+
+        writeUIContentDAM: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName)
+            );
+            /**Copy content files for dam */
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/.content.xml')
+            );
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/images/default_image.png/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + 'images/default_image.png/.content.xml')
+            );
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/images/default_image.png/_jcr_content/renditions/original.dir/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/images/default_image.png/_jcr_content/renditions/original.dir/.content.xml')
+            );
+        },
+
+        writeUIContentPages: function () {
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName)
+            );
+            /**Copy content files from dam */
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/.content.xml'), {
+                    appsFolderName: this.appsFolderName,
+                    artifactName: this.artifactName,
+                    contentFolderName: this.contentFolderName
+                }
+            );
+            /**Copy en pages .content files */
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/_jcr_content/image/file.dir/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/_jcr_content/image/file.dir/.content.xml')
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/test1/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/test1/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/test1/test1-1/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/test1/test1-1/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/test2/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/test2/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+        },
+
 
     }
 }
