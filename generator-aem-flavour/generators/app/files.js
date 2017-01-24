@@ -180,12 +180,12 @@ function writeFiles() {
             this.fs.copyTpl(
                 this.templatePath('frontend/_bower.json'),
                 this.destinationPath('frontend/bower.json'), {
-                    artifactName: this.artifactName
+                    appsFolderName: this.appsFolderName
                 }
             );
         },
 
-        writeFrontendBowerFile: function () {
+        writeFrontendGulpFile: function () {
             this.fs.copyTpl(
                 this.templatePath('frontend/_gulpfile.js'),
                 this.destinationPath('frontend/gulpfile.js'), {
@@ -198,7 +198,7 @@ function writeFiles() {
             this.fs.copyTpl(
                 this.templatePath('frontend/_package.json'),
                 this.destinationPath('frontend/package.json'), {
-                    artifactName: this.artifactName
+                    appsFolderName: this.appsFolderName
                 }
             );
         },
@@ -272,6 +272,7 @@ function writeFiles() {
 
         /**Code to copy .content files of each */
         writeUIAppsContentFiles: function () {
+            /**All content components */
             contentComponentsList.forEach(function (componentName) {
                 this.fs.copyTpl(
                     this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/' + componentName + '/.content.xml'),
@@ -280,6 +281,16 @@ function writeFiles() {
                     }
                 );
             }, this);
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/structure/basepage/.content.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/structure/basepage/.content.xml')
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/structure/contentpage/.content.xml'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/structure/contentpage/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
         },
 
         writeUIAppsStructureFiles: function () {
@@ -356,21 +367,21 @@ function writeFiles() {
             );
         },
 
-        writeUIAppsContentMETA_INF_Config: function () {
+        writeUIContentMETA_INF_Config: function () {
             this.fs.copy(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/config.xml'),
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/config.xml')
             );
         },
 
-        writeUIAppsContentMETA_INF_Settings: function () {
+        writeUIContentMETA_INF_Settings: function () {
             this.fs.copy(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/settings.xml'),
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/settings.xml')
             );
         },
 
-        writeUIAppsContentMETA_INF_Filter: function () {
+        writeUIContentMETA_INF_Filter: function () {
             this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/_filter.xml'),
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/filter.xml'), {
@@ -414,6 +425,12 @@ function writeFiles() {
                 }
             );
             /**Copy en pages .content files */
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
             this.fs.copy(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/_jcr_content/image/file.dir/.content.xml'),
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/_jcr_content/image/file.dir/.content.xml')
@@ -436,6 +453,18 @@ function writeFiles() {
                     appsFolderName: this.appsFolderName
                 }
             );
+            /**Copy fr pages .content files */
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/fr/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/fr/.content.xml'), {
+                    appsFolderName: this.appsFolderName
+                }
+            );
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/fr/_jcr_content/image/file.dir/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/fr/_jcr_content/image/file.dir/.content.xml')
+            );
+
         },
 
 

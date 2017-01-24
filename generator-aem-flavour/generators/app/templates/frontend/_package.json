@@ -1,5 +1,5 @@
 {
-  "name": "<%=artifactName%>-UI",
+  "name": "<%=appsFolderName%>",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

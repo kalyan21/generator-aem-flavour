@@ -3,4 +3,4 @@
     jcr:description="This is a page component that extends base page."
     jcr:primaryType="cq:Component"
     jcr:title="Content Page"
-    sling:resourceSuperType="vanilla/components/structure/basepage"/>
+    sling:resourceSuperType="<%=appsFolderName%>/components/structure/basepage"/>

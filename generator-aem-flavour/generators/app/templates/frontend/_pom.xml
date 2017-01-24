@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId><%= artifactId %>.frontend</artifactId>
-	<name><%= artifactName %></name>
+	<name><%= artifactName %> - Frontend</name>
 
 	<build>
 		<plugins>

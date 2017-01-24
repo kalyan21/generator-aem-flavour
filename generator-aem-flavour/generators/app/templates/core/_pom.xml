@@ -18,7 +18,7 @@
 	</parent>
 	<artifactId><%= artifactId %>.core</artifactId>
 	<packaging>bundle</packaging>
-	<name><%= artifactName %> Core</name>
+	<name><%= artifactName %> - Core</name>
 	<description>Core bundle for <%= artifactName %></description>
 	<build>
 		<plugins>
