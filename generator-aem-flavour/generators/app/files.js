@@ -91,6 +91,7 @@ function writeFiles() {
                     artifactId: this.artifactId,
                     version: this.version,
                     artifactName: this.artifactName,
+                    appsFolderName: this.appsFolderName
                 }
             );
         },
@@ -224,6 +225,8 @@ function writeFiles() {
                     artifactId: this.artifactId,
                     version: this.version,
                     artifactName: this.artifactName,
+                    packageGroup: this.packageGroup,
+                    appsFolderName: this.appsFolderName
                 }
             );
         },
@@ -269,7 +272,27 @@ function writeFiles() {
                 this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName)
             );
         },
-
+        /**Code to copy dynamic component html files in which java package is used */
+        writeUIAppsDynamicComponents: function () {
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/carousal/_carousal.html'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/carousal/carousal.html'), {
+                    packageName: this.packageName
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/header/_header.html'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/header/header.html'), {
+                    packageName: this.packageName
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/list/_list.html'),
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/list/list.html'), {
+                    packageName: this.packageName
+                }
+            );
+        },
         /**Code to copy .content files of each */
         writeUIAppsContentFiles: function () {
             /**All content components */

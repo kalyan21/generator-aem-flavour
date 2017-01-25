@@ -61,10 +61,10 @@
 						<groupId>org.apache.sling</groupId>
 						<artifactId>maven-sling-plugin</artifactId>
 						<configuration>
-							<!-- Note that this requires /apps/vanilla/install to exist!! -->
+							<!-- Note that this requires /apps/<%=appsFolderName%>/install to exist!! -->
 							<!-- This is typically the case when ui.apps is deployed first -->
-							<!-- Otherwise, create /apps/vanilla/install manually (CRXDE|Lite) -->
-							<slingUrlSuffix>/apps/vanilla/install/</slingUrlSuffix>
+							<!-- Otherwise, create /apps/<%=appsFolderName%>/install manually (CRXDE|Lite) -->
+							<slingUrlSuffix>/apps/<%=appsFolderName%>/install/</slingUrlSuffix>
 							<failOnError>true</failOnError>
 						</configuration>
 					</plugin>

@@ -1,5 +1,5 @@
 {
-  "name": "<%=appsFolderName%> -UI",
+  "name": "<%=appsFolderName%>-frontend",
   "description": "",
   "main": "index.js",
   "authors": [

@@ -15,7 +15,7 @@ var cssFilter = gulpFilter('**/*.css', {restore: true});
 var appsDesignsPath = '../ui.apps/src/main/content/jcr_root/etc/designs/<%=appsFolderName%>';
 
 gulp.task('default', function(){
-	console.log("***********************Please use mvn package to perform build*************************");
+	console.log("***********************Please use command > mvn package -to perform build*************************");
 });
 
 gulp.task('build-app-clientlib',['appStyles', 'appScripts'], function(){

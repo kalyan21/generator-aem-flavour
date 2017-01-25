@@ -103,12 +103,12 @@
 					<filterSource>${basedir}/META-INF/vault/filter.xml</filterSource>
 					<verbose>true</verbose>
 					<failOnError>true</failOnError>
-					<group>Vanilla Framework</group>
+					<group><%=packageGroup%></group>
 					<embeddeds>
 						<embedded>
-							<groupId>com.adobe.aem</groupId>
-							<artifactId>vanilla.framework.core</artifactId>
-							<target>/apps/vanilla/install</target>
+							<groupId><%=groupId%></groupId>
+							<artifactId><%=artifactId%>.core</artifactId>
+							<target>/apps/<%=appsFolderName%>/install</target>
 						</embedded>
 					</embeddeds>
 				</configuration>
@@ -181,9 +181,9 @@
 	<!-- ====================================================================== -->
 	<dependencies>
 		<dependency>
-			<groupId>com.adobe.aem</groupId>
-			<artifactId>vanilla.framework.core</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<groupId><%=groupId%></groupId>
+			<artifactId><%=artifactId%>.core</artifactId>
+			<version><%=version%>-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
