@@ -28,5 +28,10 @@ module.exports = Generator.extend({
     this.packageFolder = this.packageName.replace(/\./g, '/');
   },
 
-  writing: writeFiles()
+  writing: writeFiles(),
+
+  end: function(){
+    this.log('\n')
+    this.log(chalk.yellow('Yeoman AEM-flavour generator has created '+chalk.cyan(this.artifactName)+' project. Please run') + chalk.green(' mvn clean install -PautoInstallPackage')+ chalk.yellow(' to install '+chalk.cyan(this.artifactName)+' project in localhost:4502 instance.'));
+  }
 });

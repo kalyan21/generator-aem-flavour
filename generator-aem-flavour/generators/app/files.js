@@ -275,25 +275,25 @@ function writeFiles() {
         /**Code to copy dynamic component html files in which java package is used */
         writeUIAppsDynamicComponents: function () {
             this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/carousal/_carousal.html'),
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/carousal/carousal.html'),
                 this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/carousal/carousal.html'), {
                     packageName: this.packageName
                 }
             );
             this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/header/_header.html'),
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/header/header.html'),
                 this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/header/header.html'), {
                     packageName: this.packageName
                 }
             );
             this.fs.copyTpl(
-                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/list/_list.html'),
+                this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/list/list.html'),
                 this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/list/list.html'), {
                     packageName: this.packageName
                 }
             );
         },
-        /**Code to copy .content files of each */
+        /**Code to copy .content files of each component*/
         writeUIAppsContentFiles: function () {
             /**All content components */
             contentComponentsList.forEach(function (componentName) {
@@ -303,7 +303,30 @@ function writeFiles() {
                         componentGroupName: this.componentGroupName
                     }
                 );
+                /**This code add for touch UI dialog .content  */
+                /**carousal touch ui dialog */
+                this.fs.copy(
+                    this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/carousal/_cq_dialog/.content.xml'),
+                    this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/carousal/_cq_dialog/.content.xml')
+                );
+                /**columncontrol touch ui dialog */
+                this.fs.copy(
+                    this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/columncontrol/_cq_dialog/.content.xml'),
+                    this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/columncontrol/_cq_dialog/.content.xml')
+                );
+                /**header touch ui dialog */
+                this.fs.copy(
+                    this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/header/_cq_dialog/.content.xml'),
+                    this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/header/_cq_dialog/.content.xml')
+                );
+                /**list touch ui dialog */
+                this.fs.copy(
+                    this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/list/_cq_dialog/.content.xml'),
+                    this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/list/_cq_dialog/.content.xml')
+                );
+
             }, this);
+            /**Copy .content files for structure/page components */
             this.fs.copy(
                 this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/structure/basepage/.content.xml'),
                 this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/structure/basepage/.content.xml')
