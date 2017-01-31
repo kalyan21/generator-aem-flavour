@@ -46,7 +46,6 @@ var contentComponentsList = [
     'columncontrol',
     'footer',
     'header',
-    'helloworld',
     'image',
     'list',
     'rawhtml',
@@ -334,7 +333,8 @@ function writeFiles() {
             this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/structure/contentpage/.content.xml'),
                 this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/structure/contentpage/.content.xml'), {
-                    appsFolderName: this.appsFolderName
+                    appsFolderName: this.appsFolderName,
+                    siteName: this.siteName
                 }
             );
         },
@@ -382,9 +382,12 @@ function writeFiles() {
         },
 
         writeEtcDesignsContent: function () {
-            this.fs.copy(
+            this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/_vanilla/.content.xml'),
-                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/' + this.appsFolderName + '/.content.xml')
+                this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/' + this.appsFolderName + '/.content.xml'), {
+                    siteName: this.siteName,
+                    componentGroupName: this.componentGroupName
+                }
             );
             this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/etc/designs/_vanilla/clientlib-all/.content.xml'),
@@ -442,17 +445,19 @@ function writeFiles() {
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName)
             );
             /**Copy content files for dam */
-            this.fs.copy(
+            this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/.content.xml'),
-                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/.content.xml')
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/.content.xml'), {
+                    contentFolderName: this.contentFolderName
+                }
+            );
+            this.fs.copy(
+                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/images/.content.xml'),
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/images/.content.xml')
             );
             this.fs.copy(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/images/default_image.png/.content.xml'),
-                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + 'images/default_image.png/.content.xml')
-            );
-            this.fs.copy(
-                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/images/default_image.png/_jcr_content/renditions/original.dir/.content.xml'),
-                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/images/default_image.png/_jcr_content/renditions/original.dir/.content.xml')
+                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/images/default_image.png/.content.xml')
             );
         },
 
@@ -476,10 +481,6 @@ function writeFiles() {
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/.content.xml'), {
                     appsFolderName: this.appsFolderName
                 }
-            );
-            this.fs.copy(
-                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/_jcr_content/image/file.dir/.content.xml'),
-                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/en/_jcr_content/image/file.dir/.content.xml')
             );
             this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/en/test1/.content.xml'),
@@ -506,11 +507,6 @@ function writeFiles() {
                     appsFolderName: this.appsFolderName
                 }
             );
-            this.fs.copy(
-                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/fr/_jcr_content/image/file.dir/.content.xml'),
-                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName + '/fr/_jcr_content/image/file.dir/.content.xml')
-            );
-
         },
 
 

@@ -149,11 +149,11 @@ function askForSiteName() {
     var done = this.async();
     this.prompt({
         type: 'input',
-        name: 'sitename',
+        name: 'siteName',
         message: 'Provide ' + chalk.green('site name') + ' for your application ',
         default: 'My App'
     }).then(function (prompt) {
-        this.sitename = prompt.sitename;
+        this.siteName = prompt.siteName;
         done();
     }.bind(this));
 }
