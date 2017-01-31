@@ -98,6 +98,17 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="<%=appsFolderName%>/components/content/header"/>
         </header-ipar>
+        <footer-ipar
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/iparsys">
+            <footer
+                jcr:created="{Date}2017-01-31T23:15:41.858+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-01-31T23:15:41.858+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="<%=appsFolderName%>/components/content/footer"/>
+        </footer-ipar>
     </jcr:content>
     <test1/>
     <test2/>
