@@ -11,14 +11,76 @@
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/parsys">
-            <image
-                jcr:created="{Date}2016-09-03T00:00:06.480+05:30"
+            <title_829439095
+                jcr:created="{Date}2017-01-31T22:43:57.106+05:30"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2016-09-03T00:00:10.140+05:30"
+                jcr:lastModified="{Date}2017-01-31T22:44:08.379+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="<%=appsFolderName%>/components/content/image"
-                fileReference="/content/dam/<%=appsFolderName%>/asset.jpg"/>
+                jcr:title="Page List Component"
+                sling:resourceType="<%=appsFolderName%>/components/content/title"/>
+            <title
+                jcr:created="{Date}2017-01-31T22:38:52.491+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-01-31T22:44:33.933+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Thumbnail View"
+                sling:resourceType="<%=appsFolderName%>/components/content/title"
+                type="h2"/>
+            <text
+                jcr:created="{Date}2017-01-31T22:41:00.600+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-01-31T22:41:07.863+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="<%=appsFolderName%>/components/content/text"
+                text="&lt;p>Thumbnail view takes the data from the page properties and creates bootstrap content thumbnail which has:&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>Page image&lt;/li>&#xa;&lt;li>Page title&lt;/li>&#xa;&lt;li>Page description&amp;nbsp;&lt;/li>&#xa;&lt;li>Page Link&lt;/li>&#xa;&lt;/ol>&#xa;"
+                textIsRich="true"/>
+            <list
+                jcr:created="{Date}2017-01-31T22:37:43.444+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-01-31T22:37:51.137+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="<%=appsFolderName%>/components/content/list"
+                displayAs="ThumbnailContentViewPageList"
+                feedEnabled="{Boolean}true"
+                limit="0"
+                listFrom="children"
+                orderBy="jcr:title"
+                tagsMatch="any"/>
+            <title_958538043
+                jcr:created="{Date}2017-01-31T22:39:35.648+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-01-31T22:44:42.197+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Link View"
+                sling:resourceType="<%=appsFolderName%>/components/content/title"
+                type="h2"/>
+            <text_1959351242
+                jcr:created="{Date}2017-01-31T22:41:12.243+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-01-31T22:41:27.885+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="<%=appsFolderName%>/components/content/text"
+                text="&lt;p>Link view a very basic view that creates the list of links from the input&lt;br>&#xa;&lt;/p>&#xa;"
+                textIsRich="true"/>
+            <list_120009869
+                jcr:created="{Date}2017-01-31T22:38:02.509+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-01-31T22:38:08.669+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="<%=appsFolderName%>/components/content/list"
+                displayAs="LinkViewPageList"
+                feedEnabled="{Boolean}true"
+                limit="0"
+                listFrom="children"
+                orderBy="jcr:title"
+                tagsMatch="any"/>
         </par>
         <header-ipar
             jcr:lastModified="{Date}2016-09-03T01:41:34.157+05:30"
