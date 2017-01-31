@@ -47,7 +47,7 @@ function askForVersion() {
         type: 'input',
         name: 'version',
         message: 'Provide ' + chalk.green('snapshot version') + ' for your application',
-        default: '1.0'
+        default: '1.0.0'
     }).then(function (prompt) {
         this.version = prompt.version;
         done();
