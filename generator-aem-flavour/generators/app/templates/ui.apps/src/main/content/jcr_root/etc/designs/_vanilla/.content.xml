@@ -24,6 +24,13 @@
                 components="group:<%=componentGroupName%>">
                 <section jcr:primaryType="nt:unstructured"/>
             </footer-ipar>
+			<par
+                jcr:lastModified="{Date}2017-01-31T17:36:28.994+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                components="group:<%=componentGroupName%>">
+                <section jcr:primaryType="nt:unstructured"/>
+            <par>
         </contentpage>
     </jcr:content>
 </jcr:root>
