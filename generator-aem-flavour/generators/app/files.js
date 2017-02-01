@@ -412,6 +412,7 @@ function writeFiles() {
                     artifactId: this.artifactId,
                     version: this.version,
                     artifactName: this.artifactName,
+                    packageGroup: this.packageGroup
                 }
             );
         },
