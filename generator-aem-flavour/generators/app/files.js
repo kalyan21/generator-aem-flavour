@@ -323,6 +323,13 @@ function writeFiles() {
                     this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/list/_cq_dialog/.content.xml'),
                     this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/list/_cq_dialog/.content.xml')
                 );
+                /**list thumbnail view html file */
+                this.fs.copyTpl(
+                    this.templatePath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/_vanilla/components/content/list/views/_thumbnailview.html'),
+                    this.destinationPath(constants.VANILLA_APPS_MAIN_JCR_ROOT + '/apps/' + this.appsFolderName + '/components/content/list/views/thumbnailview.html'), {
+                        appsFolderName: this.appsFolderName
+                    }
+                );
 
             }, this);
             /**Copy .content files for structure/page components */
