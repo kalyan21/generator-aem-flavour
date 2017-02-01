@@ -462,10 +462,6 @@ function writeFiles() {
         },
 
         writeUIContentPages: function () {
-            this.fs.copy(
-                this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla'),
-                this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/' + this.contentFolderName)
-            );
             /**Copy content files from dam */
             this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/_vanilla/.content.xml'),
