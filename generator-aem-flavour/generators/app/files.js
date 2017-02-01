@@ -72,7 +72,7 @@ function writeFiles() {
                 }
             );
             this.fs.copy(
-                this.templatePath('.gitignore'),
+                this.templatePath('.npmignore'),
                 this.destinationPath('.gitignore')
             );
             this.fs.copy(
