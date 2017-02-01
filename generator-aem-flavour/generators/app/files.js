@@ -456,7 +456,7 @@ function writeFiles() {
             this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/_vanilla/.content.xml'),
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_JCR_ROOT_CONTENT + '/dam/' + this.contentFolderName + '/.content.xml'), {
-                    contentFolderName: this.contentFolderName
+                    artifactName: this.artifactName
                 }
             );
             this.fs.copy(
