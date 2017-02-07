@@ -1,5 +1,5 @@
-# generator-aem-flavour [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> AEM Flavour is a framework that is used to kickstart new AEM 6.2 projects which has lots of reusable components with best practices. 
+# generator-aem-flavour [![NPM version][npm-image]][npm-url]
+> AEM Flavour is a project scaffolding that is used to kickstart new AEM 6.2 projects.
 
 ## Installation
 
@@ -15,17 +15,9 @@ Then generate your new project:
 ```bash
 yo aem-flavour
 ```
-
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
 ## License
 
-MIT © [kalyan venkat varanasi](update)
+MIT © [kalyan venkat varanasi](https://github.com/kalyan21)
 
 
 [npm-image]: https://badge.fury.io/js/generator-aem-flavour.svg

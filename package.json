@@ -1,12 +1,12 @@
 {
   "name": "generator-aem-flavour",
   "version": "1.0.1",
-  "description": "AEM Flavour is a project scaffolding that is used to kickstart new AEM 6.2 projects which has lots of reusable components with best practices. ",
+  "description": "AEM Flavour is a project scaffolding that is used to kickstart new AEM 6.2 projects.",
   "homepage": "update!!",
   "author": {
-    "name": "kalyan venkat varanasi",
+    "name": "Kalyan Venkat Varanasi",
     "email": "kalyan.venkat21@gmail.com",
-    "url": "update"
+    "url": "https://github.com/kalyan21"
   },
   "files": [
     "generators"
@@ -46,7 +46,7 @@
       "mocha": true
     }
   },
-  "repository": "update!!/generator-aem-flavour",
+  "repository": "https://github.com/kalyan21/generator-aem-flavour",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
