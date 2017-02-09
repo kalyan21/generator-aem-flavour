@@ -44,7 +44,7 @@ Advantages of using front end build in AEM
 There is a new maven module called frontend where all the client libraries are stored.
 
 #### aem_components (Folder)
-All the global and component specific client libraries are placed inside components and global folders respectively. All the JS files have to be kept user scripts folder and SCSS has to be kept under styles folder. For reference go through how it’s been implemented for the components that are provided by this framework.
+All the global and component specific client libraries are placed inside components and global folders respectively. All the JS files have to be kept under scripts folder and SCSS has to be kept under styles folder. For reference go through the components that are provided by this framework.
 
 #### gulpfile.js:
 Gulp is a build system that automates list of tasks. This is more or less like a maven build, which has list of tasks to be done. The task can be anything like compile SCSS, compile typescript, concatenate etc. For writing own task refer [gulp](http://gulpjs.com/) .
