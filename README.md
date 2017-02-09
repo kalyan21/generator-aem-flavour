@@ -60,8 +60,11 @@ This has a maven-frontend-plugin which is used to run multiple frontend build ta
 
 ### Finally in a nutshell
 When _mvn package_ command is given in frontend module
+
 1. It reads bower.json file and downloads all the vendor dependencies.
+
 2. Concatenate/minify vendor library files and move them to AEM ./designs
+
 3. Read all the application specific client libraries from aem_components folder, concatenate CSS/JS files and moves them to AEM ./designs
 
 ## New Page List Component
@@ -119,6 +122,7 @@ Forntend module requires Bower to download vendor libraries. Bower is dependent 
 
 ## Inspiration
 Adobe [aem-granite-archetype](https://github.com/Adobe-Marketing-Cloud/aem-project-archetype)
+
 Jhipster
 
 ## License
