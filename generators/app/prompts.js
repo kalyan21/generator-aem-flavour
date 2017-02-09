@@ -3,12 +3,13 @@
 var chalk = require('chalk');
 
 module.exports = {
+    askForArtifactName,
+    askForProjectDescription,
     askForGroupId,
     askForArtifactId,
     askForVersion,
     askForPackage,
     askForAppsFolderName,
-    askForArtifactName,
     askForComponentGroupName,
     askForContentFolderName,
     askForPackageGroup,
@@ -102,6 +103,19 @@ function askForArtifactName() {
         default: 'My App'
     }).then(function (prompt) {
         this.artifactName = prompt.artifactName;
+        done();
+    }.bind(this));
+}
+
+function askForProjectDescription() {
+    var done = this.async();
+    this.prompt({
+        type: 'input',
+        name: 'projectDescription',
+        message: 'Provide ' + chalk.green('project description name') + ' for your application ',
+        default: 'Update!! description'
+    }).then(function (prompt) {
+        this.projectDescription = prompt.projectDescription;
         done();
     }.bind(this));
 }
