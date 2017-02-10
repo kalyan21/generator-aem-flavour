@@ -21,6 +21,7 @@ Then generate your new project:
 ```bash
 yo aem-flavour
 ```
+
 ## Why AEM-Flavour
 There are many scaffolding tools which makes project creation easier. But, AEM-Flavour goes a step further and helps you in bootstrapping all the requirements of an AEM project.
 High lights:
@@ -84,7 +85,8 @@ This new page list component comes with two basic views
 * Less than 150 lines of core code (less code -> less error prone)
 
 ## Page Components (Template components)
-AEM-Flavour provides 
+AEM-Flavour provides
+
 #### Base page component
 This page component doesn’t relate with any of the template and is used to extend other page components.
 
@@ -116,7 +118,9 @@ This is a very basic component that has text area as input in the dialog where a
 * Text and Image Component
 
 ## Common Issues
+
 #### Build failure
+
 **Forntend module**
 Forntend module requires Bower to download vendor libraries. Bower is dependent on git to download libraries from bower's git repository. Make sure to install git and available to the windows environment variable. To quickly check open command prompt and give _git_ command, it should show the usage and options.
 
