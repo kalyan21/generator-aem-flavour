@@ -24,7 +24,9 @@ yo aem-flavour
 
 ## Why AEM-Flavour
 There are many scaffolding tools which makes project creation easier. But, AEM-Flavour goes a step further and helps you in bootstrapping all the requirements of an AEM project.
+
 High lights:
+
 * Front-end build for client libraries
 * Powerful and highly extensible page list component
 * Templates/Page components
@@ -112,6 +114,7 @@ This component is used to create buttons/links for your website and is been deve
 This is a very basic component that has text area as input in the dialog where author can place HTML.
 
 ## Adobe OOTB Components
+
 * Title Component
 * Image Component
 * Text
@@ -119,9 +122,10 @@ This is a very basic component that has text area as input in the dialog where a
 
 ## Common Issues
 
-#### Build failure
+### Build failure
 
-**Forntend module**
+#### Forntend module
+
 Forntend module requires Bower to download vendor libraries. Bower is dependent on git to download libraries from bower's git repository. Make sure to install git and available to the windows environment variable. To quickly check open command prompt and give _git_ command, it should show the usage and options.
 
 ## Inspiration
