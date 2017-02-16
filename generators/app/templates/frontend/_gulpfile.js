@@ -1,13 +1,14 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var bowerMain = require('main-bower-files');
-var uglify = require('gulp-uglify');
-var gulpFilter = require('gulp-filter');
-var rename = require('gulp-rename');
-var minifyCSS = require('gulp-minify-css');
-var less = require('gulp-less');
-var gulpSequence = require('gulp-sequence');
+var gulp 			= require('gulp');
+var sass 			= require('gulp-sass');
+var concat 			= require('gulp-concat');
+var bowerMain 		= require('main-bower-files');
+var uglify 			= require('gulp-uglify');
+var gulpFilter 		= require('gulp-filter');
+var rename 			= require('gulp-rename');
+var minifyCSS 		= require('gulp-minify-css');
+var less 			= require('gulp-less');
+var gulpSequence	= require('gulp-sequence');
+var watch 			= require('gulp-watch');
 
 var jsFilter = gulpFilter('**/*.js', {restore: true});
 var lessFilter = gulpFilter('**/*.less', {restore: true});
@@ -19,11 +20,24 @@ gulp.task('default', function(){
 	console.log("***********************Please use command > mvn package (or) gulp build to perform build*************************");
 });
 
-gulp.task('build', gulpSequence('build-bower-vendor-clientlib', 
-								'build-app-clientlib',
-								'move-applibs-to-aem',
-								'move-fonts-to-aem',
-								'move-vendorlibs-to-aem'));
+gulp.task('build', function(callback) {
+	gulpSequence(
+				'build-bower-vendor-clientlib',
+				'build-app-clientlib',
+				'move-applibs-to-aem',
+				'move-fonts-to-aem',
+				'move-vendorlibs-to-aem')(callback)
+});
+
+gulp.task('dev-build', function(callback) {
+	gulpSequence(
+				'build-app-clientlib',
+				'move-applibs-to-aem')(callback)
+});
+
+gulp.task('watch', function(){
+	gulp.watch('./aem_components/**', ['dev-build'])
+});
 
 gulp.task('build-app-clientlib',['appStyles', 'appScripts'], function(){
 	console.log("Finished tasks for application client libraries");
