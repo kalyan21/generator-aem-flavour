@@ -3,7 +3,7 @@
   "description": "",
   "main": "index.js",
   "authors": [
-    "kalyan.varanasi <kalyan.varanasi@capgemini.com>"
+    "AEM-Flavour generator"
   ],
   "license": "ISC",
   "homepage": "",
@@ -15,7 +15,6 @@
     "tests"
   ],
   "devDependencies": {
-    "bootstrap": "^3.3.7"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
