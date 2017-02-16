@@ -29,18 +29,31 @@ gulp.task('build', function(callback) {
 				'move-vendorlibs-to-aem')(callback)
 });
 
+gulp.task('prod-build', function(callback) {
+	gulpSequence(
+				'build-bower-vendor-clientlib',
+				'build-app-clientlib-prod',
+				'move-applibs-to-aem',
+				'move-fonts-to-aem',
+				'move-vendorlibs-to-aem')(callback)
+});
+
 gulp.task('dev-build', function(callback) {
 	gulpSequence(
 				'build-app-clientlib',
 				'move-applibs-to-aem')(callback)
 });
 
-gulp.task('watch', function(){
-	gulp.watch('./aem_components/**', ['dev-build'])
-});
-
 gulp.task('build-app-clientlib',['appStyles', 'appScripts'], function(){
 	console.log("Finished tasks for application client libraries");
+});
+
+gulp.task('build-app-clientlib-prod',['prod-appStyles', 'prod-appScripts'], function(){
+	console.log("Finished tasks for production application client libraries");
+});
+
+gulp.task('watch', function(){
+	gulp.watch('./aem_components/**', ['dev-build'])
 });
 
 gulp.task('build-bower-vendor-clientlib',['fontawesome-fonts-to-dist', 'slick-fonts-to-dist'], function() {
@@ -86,6 +99,31 @@ gulp.task('appScripts', function(){
         './aem_components/**/scripts/*.js'
     ])
     .pipe(concat('app.js'))
+    .pipe(gulp.dest('./dist/app/js'));
+});
+
+gulp.task('prod-appStyles', function(){
+    return gulp.src([
+        './aem_components/**/styles/*.scss'
+    ])
+    .pipe(sass())
+    .pipe(concat('app.css'))
+	.pipe(minifyCSS({keepBreaks:true}))
+    .pipe(rename({
+        suffix: ".min"
+    }))
+    .pipe(gulp.dest('./dist/app/css'));
+});
+
+gulp.task('prod-appScripts', function(){
+    return gulp.src([
+        './aem_components/**/scripts/*.js'
+    ])
+    .pipe(concat('app.js'))
+	.pipe(uglify())
+    .pipe(rename({
+        suffix: ".min"
+    }))
     .pipe(gulp.dest('./dist/app/js'));
 });
 
