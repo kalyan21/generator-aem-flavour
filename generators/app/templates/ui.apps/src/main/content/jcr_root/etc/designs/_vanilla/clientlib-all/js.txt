@@ -1,2 +1,3 @@
 #base=js
 app.js
+app.min.js
