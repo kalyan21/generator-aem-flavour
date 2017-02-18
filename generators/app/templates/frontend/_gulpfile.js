@@ -5,7 +5,7 @@ var bowerMain = require('main-bower-files');
 var uglify = require('gulp-uglify');
 var gulpFilter = require('gulp-filter');
 var rename = require('gulp-rename');
-var minifyCSS = require('gulp-minify-css');
+var minifyCSS = require('gulp-clean-css');
 var less = require('gulp-less');
 var gulpSequence = require('gulp-sequence');
 var watch = require('gulp-watch');
@@ -87,7 +87,7 @@ gulp.task('build-bower-vendor-clientlib', ['fontawesome-fonts-to-dist', 'slick-f
         .pipe(lessFilter)
         .pipe(less())
         .pipe(concat('lib.css'))
-        .pipe(minifyCSS({ keepBreaks: true }))
+        .pipe(minifyCSS())
         .pipe(rename({
             suffix: ".min"
         }))
@@ -119,7 +119,7 @@ gulp.task('prod-appStyles', function () {
     ])
         .pipe(sass())
         .pipe(concat('app.css'))
-        .pipe(minifyCSS({ keepBreaks: true }))
+        .pipe(minifyCSS())
         .pipe(rename({
             suffix: ".min"
         }))
