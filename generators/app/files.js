@@ -445,7 +445,7 @@ function writeFiles() {
             this.fs.copyTpl(
                 this.templatePath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/_filter.xml'),
                 this.destinationPath(constants.VANILLA_UI_CONTENT_MAIN_CONTENT + '/META-INF/vault/filter.xml'), {
-                    appsFolderName: this.appsFolderName
+                    contentFolderName: this.contentFolderName
                 }
             );
         },
